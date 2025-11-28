@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Pixel Multi-Activator Pro</title>
+    <style>
+        :root {
+            --primary: #69C9D0;
+            --secondary: #EE1D52;
+            --dark: #010101;
+            --light: #FFFFFF;
+            --success: #4CAF50;
+            --error: #F44336;
+            --warning: #FF9800;
+            --gray: #F5F5F5;
+            --shadow: 0 10px 20px rgba(0,0,0,0.2);
+            --card-bg: rgba(255, 255, 255, 0.07);
+            --card-border: rgba(255, 255, 255, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--dark), #1a1a2e);
+            color: var(--light);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            transform: perspective(1000px) rotateX(2deg);
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(105, 201, 208, 0.15) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            font-weight: 800;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform: perspective(1000px) rotateX(1deg);
+        }
+        
+        .card:hover {
+            transform: perspective(1000px) rotateX(1deg) translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h2 i {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        textarea, input, select {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.3);
+            color: var(--light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        textarea:focus, input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(105, 201, 208, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+            line-height: 1.5;
+        }
+        
+        .input-with-icon {
+            position: relative;
+        }
+        
+        .input-with-icon i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+        }
+        
+        .btn {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            gap: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(0,0,0,0.3);
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+        }
+        
+        .btn-success {
+            background: linear-gradient(to right, var(--success), #2E7D32);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(to right, var(--error), #C62828);
+        }
+        
+        .btn-warning {
+            background: linear-gradient(to right, var(--warning), #EF6C00);
+        }
+        
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-value {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin: 15px 0;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .log-container {
+            max-height: 350px;
+            overflow-y: auto;
+            margin-top: 20px;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .log-entry {
+            padding: 12px 15px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--primary);
+            display: flex;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+        
+        .log-entry:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .log-entry.success {
+            border-left-color: var(--success);
+        }
+        
+        .log-entry.error {
+            border-left-color: var(--error);
+        }
+        
+        .log-entry.warning {
+            border-left-color: var(--warning);
+        }
+        
+        .log-time {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-right: 15px;
+            min-width: 85px;
+            font-family: monospace;
+        }
+        
+        .log-message {
+            flex: 1;
+            font-size: 1rem;
+        }
+        
+        .progress-container {
+            margin-top: 25px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+            height: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            width: 0%;
+            transition: width 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .pixel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .pixel-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pixel-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .pixel-card.active {
+            border-color: var(--success);
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+        }
+        
+        .pixel-card.active::before {
+            transform: scaleX(1);
+            background: linear-gradient(to right, var(--success), #2E7D32);
+        }
+        
+        .pixel-card.error {
+            border-color: var(--error);
+            box-shadow: 0 0 20px rgba(244, 67, 54, 0.3);
+        }
+        
+        .pixel-card.error::before {
+            transform: scaleX(1);
+            background: linear-gradient(to right, var(--error), #C62828);
+        }
+        
+        .pixel-card.processing {
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(105, 201, 208, 0.3);
+            animation: pulse-card 2s infinite;
+        }
+        
+        .pixel-card.processing::before {
+            transform: scaleX(1);
+        }
+        
+        @keyframes pulse-card {
+            0% { box-shadow: 0 0 20px rgba(105, 201, 208, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(105, 201, 208, 0.6); }
+            100% { box-shadow: 0 0 20px rgba(105, 201, 208, 0.3); }
+        }
+        
+        .pixel-id {
+            font-family: monospace;
+            font-size: 1rem;
+            margin: 15px 0;
+            word-break: break-all;
+            font-weight: 600;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .status-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .status-active {
+            background: var(--success);
+            box-shadow: 0 0 10px var(--success);
+        }
+        
+        .status-inactive {
+            background: var(--error);
+        }
+        
+        .status-processing {
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(105, 201, 208, 0.1) 0%, rgba(0,0,0,0) 70%);
+            animation: float 25s infinite linear;
+            opacity: 0.7;
+        }
+        
+        .floating-element:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-duration: 30s;
+        }
+        
+        .floating-element:nth-child(2) {
+            top: 60%;
+            left: 80%;
+            animation-duration: 35s;
+            width: 150px;
+            height: 150px;
+        }
+        
+        .floating-element:nth-child(3) {
+            top: 30%;
+            left: 70%;
+            animation-duration: 25s;
+        }
+        
+        .floating-element:nth-child(4) {
+            top: 80%;
+            left: 20%;
+            animation-duration: 40s;
+            width: 100px;
+            height: 100px;
+        }
+        
+        .floating-element:nth-child(5) {
+            top: 40%;
+            left: 40%;
+            animation-duration: 20s;
+            width: 80px;
+            height: 80px;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            25% { transform: translate(50px, 50px) rotate(90deg) scale(1.1); }
+            50% { transform: translate(0, 100px) rotate(180deg) scale(1); }
+            75% { transform: translate(-50px, 50px) rotate(270deg) scale(0.9); }
+            100% { transform: translate(0, 0) rotate(360deg) scale(1); }
+        }
+        
+        .event-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .event-pageview {
+            background: rgba(105, 201, 208, 0.2);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        
+        .event-register {
+            background: rgba(238, 29, 82, 0.2);
+            color: var(--secondary);
+            border: 1px solid var(--secondary);
+        }
+        
+        .event-complete {
+            background: rgba(76, 175, 80, 0.2);
+            color: var(--success);
+            border: 1px solid var(--success);
+        }
+        
+        .event-purchase {
+            background: rgba(255, 152, 0, 0.2);
+            color: var(--warning);
+            border: 1px solid var(--warning);
+        }
+        
+        .events-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        
+        .section-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-small {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .controls {
+                flex-direction: column;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .pixel-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .section-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+        
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            z-index: 1000;
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .notification.success {
+            background: linear-gradient(to right, var(--success), #2E7D32);
+        }
+        
+        .notification.error {
+            background: linear-gradient(to right, var(--error), #C62828);
+        }
+        
+        .notification.info {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+    </div>
+    
+    <div id="notification" class="notification">
+        <i class="fas fa-check-circle"></i>
+        <span>Pesan notifikasi</span>
+    </div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div>
+                    <h1>TikTok Pixel Multi-Activator Pro</h1>
+                    <p class="subtitle">Aktifkan multiple TikTok Pixel dengan cepat dan pantau semua event secara real-time</p>
+                </div>
+            </div>
+        </header>
+        
+        <div class="card">
+            <div class="section-title">
+                <h2><i class="fas fa-cogs"></i> Konfigurasi Pixel</h2>
+                <div class="section-actions">
+                    <button id="testPixelBtn" class="btn btn-warning btn-small">
+                        <i class="fas fa-vial"></i> Test Pixel
+                    </button>
+                    <button id="clearLogsBtn" class="btn btn-small">
+                        <i class="fas fa-trash"></i> Hapus Log
+                    </button>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="pixelIds">Pixel IDs (satu per baris):</label>
+                <textarea id="pixelIds" placeholder="Masukkan Pixel IDs di sini, satu per baris...">D4KLCJRC77UEBGID24Q0
+D4KLCJRC77UEBGID24Q1
+D4KLCJRC77UEBGID24Q2
+D4KLCJRC77UEBGID24Q3</textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="activations">Jumlah Aktivasi per Pixel:</label>
+                <div class="input-with-icon">
+                    <input type="number" id="activations" min="1" max="100" value="5">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="delay">Delay Antar Aktivasi (ms):</label>
+                <div class="input-with-icon">
+                    <input type="number" id="delay" min="0" max="10000" value="500">
+                    <i class="fas fa-clock"></i>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button id="startBtn" class="btn btn-success">
+                    <i class="fas fa-play-circle"></i> Mulai Aktivasi
+                </button>
+                <button id="stopBtn" class="btn btn-danger">
+                    <i class="fas fa-stop-circle"></i> Hentikan
+                </button>
+                <button id="resetBtn" class="btn">
+                    <i class="fas fa-redo-alt"></i> Reset Semua
+                </button>
+                <button id="exportBtn" class="btn">
+                    <i class="fas fa-file-export"></i> Ekspor Data
+                </button>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2><i class="fas fa-chart-line"></i> Statistik Aktivasi</h2>
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-label">Total Pixel</div>
+                    <div class="stat-value" id="totalPixels">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Aktivasi Berhasil</div>
+                    <div class="stat-value" id="successCount">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Aktivasi Gagal</div>
+                    <div class="stat-value" id="errorCount">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Progress</div>
+                    <div class="stat-value" id="progressPercent">0%</div>
+                </div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2><i class="fas fa-list"></i> Status Pixel</h2>
+            <div class="pixel-grid" id="pixelGrid">
+                <!-- Pixel cards will be generated here -->
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="section-title">
+                <h2><i class="fas fa-terminal"></i> Log Aktivitas</h2>
+                <div class="tooltip">
+                    <button id="clearLogsBtn2" class="btn btn-small">
+                        <i class="fas fa-broom"></i> Bersihkan
+                    </button>
+                    <span class="tooltiptext">Hapus semua log aktivitas</span>
+                </div>
+            </div>
+            <div class="log-container" id="logContainer">
+                <!-- Log entries will be added here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elements
+            const pixelIdsTextarea = document.getElementById('pixelIds');
+            const activationsInput = document.getElementById('activations');
+            const delayInput = document.getElementById('delay');
+            const startBtn = document.getElementById('startBtn');
+            const stopBtn = document.getElementById('stopBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const exportBtn = document.getElementById('exportBtn');
+            const testPixelBtn = document.getElementById('testPixelBtn');
+            const clearLogsBtn = document.getElementById('clearLogsBtn');
+            const clearLogsBtn2 = document.getElementById('clearLogsBtn2');
+            const totalPixelsEl = document.getElementById('totalPixels');
+            const successCountEl = document.getElementById('successCount');
+            const errorCountEl = document.getElementById('errorCount');
+            const progressPercentEl = document.getElementById('progressPercent');
+            const progressBar = document.getElementById('progressBar');
+            const pixelGrid = document.getElementById('pixelGrid');
+            const logContainer = document.getElementById('logContainer');
+            const notification = document.getElementById('notification');
+            
+            // State
+            let isRunning = false;
+            let currentPixelIndex = 0;
+            let currentActivation = 0;
+            let totalPixels = 0;
+            let totalActivations = 0;
+            let successCount = 0;
+            let errorCount = 0;
+            let pixelData = [];
+            let processInterval;
+            let loadedPixels = {};
+            
+            // Initialize
+            updateStats();
+            addLog('Sistem TikTok Pixel Multi-Activator siap digunakan', 'success');
+            
+            // Event Listeners
+            startBtn.addEventListener('click', startProcess);
+            stopBtn.addEventListener('click', stopProcess);
+            resetBtn.addEventListener('click', resetProcess);
+            exportBtn.addEventListener('click', exportData);
+            testPixelBtn.addEventListener('click', testPixel);
+            clearLogsBtn.addEventListener('click', clearLogs);
+            clearLogsBtn2.addEventListener('click', clearLogs);
+            
+            // Functions
+            function startProcess() {
+                if (isRunning) {
+                    showNotification('Proses sudah berjalan!', 'warning');
+                    return;
+                }
+                
+                const pixelIds = pixelIdsTextarea.value.split('\n').filter(id => id.trim() !== '');
+                if (pixelIds.length === 0) {
+                    addLog('Tidak ada Pixel ID yang dimasukkan!', 'error');
+                    showNotification('Masukkan Pixel ID terlebih dahulu!', 'error');
+                    return;
+                }
+                
+                const activations = parseInt(activationsInput.value);
+                const delay = parseInt(delayInput.value);
+                
+                if (activations < 1) {
+                    addLog('Jumlah aktivasi harus minimal 1!', 'error');
+                    showNotification('Jumlah aktivasi minimal 1!', 'error');
+                    return;
+                }
+                
+                isRunning = true;
+                currentPixelIndex = 0;
+                currentActivation = 0;
+                successCount = 0;
+                errorCount = 0;
+                
+                totalPixels = pixelIds.length;
+                totalActivations = totalPixels * activations;
+                
+                // Initialize pixel data
+                pixelData = pixelIds.map(id => ({
+                    id: id.trim(),
+                    status: 'inactive',
+                    success: 0,
+                    error: 0,
+                    events: []
+                }));
+                
+                updateStats();
+                renderPixelCards();
+                addLog(`Memulai proses aktivasi untuk ${totalPixels} pixel dengan ${activations} aktivasi per pixel`, 'info');
+                showNotification('Memulai aktivasi pixel...', 'info');
+                
+                // Start processing
+                processInterval = setInterval(processNextActivation, delay);
+            }
+            
+            function stopProcess() {
+                if (!isRunning) return;
+                
+                isRunning = false;
+                clearInterval(processInterval);
+                addLog('Proses dihentikan oleh pengguna', 'warning');
+                showNotification('Aktivasi dihentikan', 'warning');
+                
+                // Update all processing pixels to inactive
+                pixelData.forEach(pixel => {
+                    if (pixel.status === 'processing') {
+                        pixel.status = 'inactive';
+                    }
+                });
+                renderPixelCards();
+            }
+            
+            function resetProcess() {
+                stopProcess();
+                
+                currentPixelIndex = 0;
+                currentActivation = 0;
+                successCount = 0;
+                errorCount = 0;
+                totalPixels = 0;
+                totalActivations = 0;
+                pixelData = [];
+                loadedPixels = {};
+                
+                updateStats();
+                renderPixelCards();
+                addLog('Semua data telah direset', 'info');
+                showNotification('Semua data telah direset', 'info');
+            }
+            
+            function processNextActivation() {
+                if (!isRunning) return;
+                
+                const pixel = pixelData[currentPixelIndex];
+                const activations = parseInt(activationsInput.value);
+                
+                // Update pixel status to processing
+                pixel.status = 'processing';
+                updatePixelCard(currentPixelIndex);
+                
+                // Load TikTok Pixel if not already loaded
+                if (!loadedPixels[pixel.id]) {
+                    loadTikTokPixel(pixel.id);
+                    loadedPixels[pixel.id] = true;
+                }
+                
+                // Simulate TikTok Pixel activation with 95% success rate
+                const success = Math.random() > 0.05;
+                
+                // Use setTimeout to simulate async operation
+                setTimeout(() => {
+                    if (success) {
+                        successCount++;
+                        pixel.success++;
+                        pixel.status = 'active';
+                        
+                        // Send events to TikTok Pixel
+                        sendTikTokEvents(pixel.id);
+                        
+                        addLog(`Pixel ${pixel.id} berhasil diaktifkan (${currentActivation + 1}/${activations})`, 'success');
+                    } else {
+                        errorCount++;
+                        pixel.error++;
+                        pixel.status = 'error';
+                        addLog(`Pixel ${pixel.id} gagal diaktifkan (${currentActivation + 1}/${activations})`, 'error');
+                    }
+                    
+                    // Update UI
+                    updateStats();
+                    updatePixelCard(currentPixelIndex);
+                    
+                    // Move to next activation
+                    currentActivation++;
+                    
+                    if (currentActivation >= activations) {
+                        currentActivation = 0;
+                        currentPixelIndex++;
+                        
+                        if (currentPixelIndex >= totalPixels) {
+                            // All pixels processed
+                            stopProcess();
+                            addLog('Semua aktivasi pixel telah selesai!', 'success');
+                            showNotification('Semua aktivasi selesai!', 'success');
+                        }
+                    }
+                }, 100);
+            }
+            
+            function loadTikTokPixel(pixelId) {
+                // In a real implementation, this would load the actual TikTok Pixel
+                // For this demo, we simulate loading the pixel
+                addLog(`Memuat TikTok Pixel: ${pixelId}`, 'info');
+                
+                // Simulate loading TikTok Pixel script
+                const script = document.createElement('script');
+                script.textContent = `
+                    // TikTok Pixel simulation for ${pixelId}
+                    console.log('TikTok Pixel ${pixelId} loaded');
+                    window.ttq = window.ttq || function() { (window.ttq.queue = window.ttq.queue || []).push(arguments); };
+                `;
+                document.head.appendChild(script);
+            }
+            
+            function sendTikTokEvents(pixelId) {
+                // In a real implementation, this would send actual events to TikTok Pixel
+                // For this demo, we simulate sending events
+                
+                // Simulate PageView event
+                setTimeout(() => {
+                    addLog(`[${pixelId}] Event PageView terkirim`, 'info');
+                    pixelData[currentPixelIndex].events.push('PageView');
+                    updatePixelCard(currentPixelIndex);
+                }, 50);
+                
+                // Simulate Register event
+                setTimeout(() => {
+                    addLog(`[${pixelId}] Event Register terkirim`, 'info');
+                    pixelData[currentPixelIndex].events.push('Register');
+                    updatePixelCard(currentPixelIndex);
+                }, 100);
+                
+                // Simulate CompleteRegistration event
+                setTimeout(() => {
+                    addLog(`[${pixelId}] Event CompleteRegistration terkirim`, 'info');
+                    pixelData[currentPixelIndex].events.push('CompleteRegistration');
+                    updatePixelCard(currentPixelIndex);
+                }, 150);
+                
+                // Simulate Purchase event with value
+                setTimeout(() => {
+                    const purchaseValue = (Math.random() * 100 + 10).toFixed(2);
+                    addLog(`[${pixelId}] Event Purchase terkirim - R$${purchaseValue}`, 'success');
+                    pixelData[currentPixelIndex].events.push('Purchase');
+                    updatePixelCard(currentPixelIndex);
+                    
+                    // Show success notification for purchase
+                    showNotification(`Purchase event terkirim: R$${purchaseValue}`, 'success');
+                }, 200);
+            }
+            
+            function testPixel() {
+                const pixelIds = pixelIdsTextarea.value.split('\n').filter(id => id.trim() !== '');
+                if (pixelIds.length === 0) {
+                    addLog('Tidak ada Pixel ID untuk di-test!', 'error');
+                    showNotification('Masukkan Pixel ID terlebih dahulu!', 'error');
+                    return;
+                }
+                
+                const testPixelId = pixelIds[0];
+                addLog(`Memulai test untuk pixel: ${testPixelId}`, 'info');
+                
+                // Load TikTok Pixel if not already loaded
+                if (!loadedPixels[testPixelId]) {
+                    loadTikTokPixel(testPixelId);
+                    loadedPixels[testPixelId] = true;
+                }
+                
+                // Send test events
+                setTimeout(() => {
+                    addLog(`[TEST] Event PageView terkirim ke ${testPixelId}`, 'info');
+                }, 100);
+                
+                setTimeout(() => {
+                    addLog(`[TEST] Event Register terkirim ke ${testPixelId}`, 'info');
+                }, 300);
+                
+                setTimeout(() => {
+                    addLog(`[TEST] Event CompleteRegistration terkirim ke ${testPixelId}`, 'info');
+                }, 500);
+                
+                setTimeout(() => {
+                    addLog(`[TEST] Event Purchase terkirim ke ${testPixelId} - R$25.00`, 'success');
+                    showNotification('Test pixel berhasil!', 'success');
+                }, 700);
+            }
+            
+            function updateStats() {
+                totalPixelsEl.textContent = totalPixels;
+                successCountEl.textContent = successCount;
+                errorCountEl.textContent = errorCount;
+                
+                const progress = totalActivations > 0 ? 
+                    Math.round(((successCount + errorCount) / totalActivations) * 100) : 0;
+                
+                progressPercentEl.textContent = `${progress}%`;
+                progressBar.style.width = `${progress}%`;
+            }
+            
+            function renderPixelCards() {
+                pixelGrid.innerHTML = '';
+                
+                if (pixelData.length === 0) {
+                    pixelGrid.innerHTML = `
+                        <div style="grid-column: 1 / -1; text-align: center; padding: 40px; opacity: 0.7;">
+                            <i class="fas fa-info-circle" style="font-size: 3rem; margin-bottom: 15px;"></i>
+                            <p>Belum ada pixel yang dikonfigurasi. Masukkan Pixel ID di atas untuk memulai.</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                pixelData.forEach((pixel, index) => {
+                    const card = document.createElement('div');
+                    card.className = `pixel-card ${pixel.status}`;
+                    card.innerHTML = `
+                        <div class="status-indicator">
+                            <span class="status-dot ${getStatusClass(pixel.status)}"></span>
+                            <span>${getStatusText(pixel.status)}</span>
+                        </div>
+                        <div class="pixel-id">${pixel.id}</div>
+                        <div class="pixel-stats">
+                            <small>Berhasil: <strong>${pixel.success}</strong> | Gagal: <strong>${pixel.error}</strong></small>
+                        </div>
+                        <div class="events-container">
+                            ${pixel.events.map(event => `
+                                <span class="event-badge event-${event.toLowerCase().replace('registration', 'complete')}">${event}</span>
+                            `).join('')}
+                        </div>
+                    `;
+                    pixelGrid.appendChild(card);
+                });
+            }
+            
+            function updatePixelCard(index) {
+                const pixel = pixelData[index];
+                const cards = pixelGrid.querySelectorAll('.pixel-card');
+                
+                if (cards[index]) {
+                    cards[index].className = `pixel-card ${pixel.status}`;
+                    cards[index].innerHTML = `
+                        <div class="status-indicator">
+                            <span class="status-dot ${getStatusClass(pixel.status)}"></span>
+                            <span>${getStatusText(pixel.status)}</span>
+                        </div>
+                        <div class="pixel-id">${pixel.id}</div>
+                        <div class="pixel-stats">
+                            <small>Berhasil: <strong>${pixel.success}</strong> | Gagal: <strong>${pixel.error}</strong></small>
+                        </div>
+                        <div class="events-container">
+                            ${pixel.events.map(event => `
+                                <span class="event-badge event-${event.toLowerCase().replace('registration', 'complete')}">${event}</span>
+                            `).join('')}
+                        </div>
+                    `;
+                }
+            }
+            
+            function getStatusClass(status) {
+                switch(status) {
+                    case 'active': return 'status-active';
+                    case 'error': return 'status-inactive';
+                    case 'processing': return 'status-processing';
+                    default: return 'status-inactive';
+                }
+            }
+            
+            function getStatusText(status) {
+                switch(status) {
+                    case 'active': return 'Aktif';
+                    case 'error': return 'Error';
+                    case 'processing': return 'Memproses';
+                    default: return 'Tidak Aktif';
+                }
+            }
+            
+            function addLog(message, type = 'info') {
+                const logEntry = document.createElement('div');
+                logEntry.className = `log-entry ${type}`;
+                
+                const now = new Date();
+                const timeString = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+                
+                logEntry.innerHTML = `
+                    <div class="log-time">${timeString}</div>
+                    <div class="log-message">${message}</div>
+                `;
+                
+                logContainer.appendChild(logEntry);
+                logContainer.scrollTop = logContainer.scrollHeight;
+            }
+            
+            function clearLogs() {
+                logContainer.innerHTML = '';
+                addLog('Log aktivitas telah dibersihkan', 'info');
+            }
+            
+            function exportData() {
+                if (pixelData.length === 0) {
+                    showNotification('Tidak ada data untuk diekspor', 'error');
+                    return;
+                }
+                
+                const data = {
+                    timestamp: new Date().toISOString(),
+                    pixels: pixelData,
+                    stats: {
+                        totalPixels,
+                        successCount,
+                        errorCount,
+                        totalActivations
+                    }
+                };
+                
+                const dataStr = JSON.stringify(data, null, 2);
+                const dataBlob = new Blob([dataStr], {type: 'application/json'});
+                
+                const url = URL.createObjectURL(dataBlob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = `tiktok-pixel-data-${new Date().getTime()}.json`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+                
+                addLog('Data berhasil diekspor', 'success');
+                showNotification('Data berhasil diekspor', 'success');
+            }
+            
+            function showNotification(message, type = 'info') {
+                notification.className = `notification ${type}`;
+                notification.querySelector('span').textContent = message;
+                
+                // Update icon based on type
+                const icon = notification.querySelector('i');
+                icon.className = 
+                    type === 'success' ? 'fas fa-check-circle' :
+                    type === 'error' ? 'fas fa-exclamation-circle' :
+                    type === 'warning' ? 'fas fa-exclamation-triangle' : 'fas fa-info-circle';
+                
+                notification.classList.add('show');
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>
